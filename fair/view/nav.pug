@@ -1,0 +1,18 @@
+nav.sticky#nav(style = "position:realtive")
+    ul.nav-ul
+        li.nav-li
+            a.nav-links(href='') FEAURES
+        li.nav-li
+            a.nav-links(href='') REVIEW
+        li.nav-li
+            a.nav-links(href='') PLANS
+        if name
+
+            li.nav-li
+                a.nav-links(href='/profile') #{name}
+            li.nav-li
+                a.nav-links(href='/logout') LOGOUT
+        else
+            li.nav-li
+                a.nav-links(href='/login') LOGIN
+            
