@@ -22,7 +22,7 @@ async function LogoutHandler(){
     let response = await axios.get("/logout")
     if(response.data.status==="user LoggedOut"){
         alert("user loggedOut");
-        location.relode();
+        location.assign("/");
     }
     else{
         alert("logout failed");

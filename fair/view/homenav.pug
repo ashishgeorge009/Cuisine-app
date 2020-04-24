@@ -9,7 +9,7 @@ nav#nav
         if name
 
             li.nav-li
-                a.nav-links(href='/profile') #{name}
+                a.nav-links(href='/profile').navname #{name.split(" ")[0]}
             li.nav-li
                 a.nav-links(href='javascript:;').logout LOGOUT
         else

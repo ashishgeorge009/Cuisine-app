@@ -1,13 +1,21 @@
 const spanDetector = document.getElementById("span-detector");
 const nav = document.getElementById("nav");
 const showCase = document.querySelector(".showcase");
-const featureSection = document.querySelector(".features");
+const featureSection = document.querySelector(".steps")
+if(featureSection){
+    console.log("featue")
+}
 
+if(spanDetector){
+    
 window.addEventListener("load",function(){
     const clients = ["EVERYONE","FITNESS FREAKS","VEGANS","DEVELOPERS"];
     typeWriter(spanDetector,clients);
+    if(featureSection){
     window.addEventListener("scroll", myfunction);
+    }
 });
+}
 
 function typeWriter(spanDetector,clients)
 {
