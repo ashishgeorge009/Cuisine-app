@@ -1,10 +1,10 @@
 .plans-container
     .plans-text-container
-        h3.h3plan PREMIUM
+        h3.h3plan #{plan.name}
         p
-            span.amt $399
+            span.amt $ #{plan.price}
             | /month
-        p That's only 13.30$ per meal
+        p That's only #{Math.ceil(plan.price/plan.duration)}$ per meal
         hr
         ul.plan-list
             li 1 meal every day

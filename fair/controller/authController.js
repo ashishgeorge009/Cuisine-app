@@ -47,11 +47,18 @@ async function login(req, res) {
     }
     throw new Error("Invalid Input");
   } catch (err) {
-    res.status(500).json({
+    res.status(200).json({
       status: "user can't be loggedIn",
       err,
     });
   }
+}
+async function logout(req,res){
+  // token => loggedIN
+  res.cookie("jwt", "wrongtoken", { httpOnly: true });
+  res.status(200).json({
+    status: "user LoggedOut"
+  })
 }
 
 async function isUserLoggedIn(req,res,next){
@@ -82,9 +89,7 @@ async function isUserLoggedIn(req,res,next){
   }
   catch(err){
     console.log(err);
-    res.status(500).json({
-      err
-    });
+    next();
   }
 
 }
@@ -95,7 +100,10 @@ async function protectRoute(req,res,next){
     if (req.headers.authorization) {
 
       token = req.headers.authorization.split(" ").pop();
+    }else if(req.cookies.jwt){
+      token = req.cookies.jwt
     }
+    console.log(req.get("User-Agent"))
     if(token){
       const cToken = token;
       const payload = jwt.verify(cToken,secrets.JWT_SECRET_KEY);
@@ -115,10 +123,16 @@ async function protectRoute(req,res,next){
     }
   }
   catch(err){
-    console.log(err);
-    res.status(500).json({
-      err
-    });
+    let clientType = req.get("User-Agent");
+    if (clientType.includes("Mozilla") == true) {
+      //  backend express 
+      return res.redirect("/login");
+    }
+    else {
+      res.status(500).json({
+        err: err.message
+      });
+    }
   }
 }
 
@@ -226,3 +240,4 @@ module.exports.isAuthorized = isAuthorized;
 module.exports.forgetPassword = forgetPassword
 module.exports.resetPassword = resetPassword;
 module.exports.isUserLoggedIn = isUserLoggedIn;
+module.exports.logout = logout;

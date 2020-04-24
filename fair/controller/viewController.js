@@ -1,4 +1,5 @@
 const planModel = require("../model/planModel")
+const userModel = require("../model/userModel")
 function getTrialPage(req,res){
     let name = req.userName;
     console.log("reached")
@@ -33,8 +34,18 @@ function getSignupPage(req,res){
         title: "Sign Up" , name
     }
 }
+
+async function getProfilePage(req,res){
+    let user = await userModel.findById(req.id);
+    const name = req.userName
+    res.render("profile.pug",{
+        title: "Profile",user,name
+    })
+    
+}
 module.exports.getTrialPage = getTrialPage;
 module.exports.getHomePage = getHomePage;
 module.exports.getPlansPage= getPlansPage;
 module.exports.getLoginPage= getLoginPage;
 module.exports.getSignupPage=getSignupPage;
+module.exports.getProfilePage=getProfilePage;
