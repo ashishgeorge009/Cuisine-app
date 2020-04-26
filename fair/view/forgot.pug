@@ -6,15 +6,15 @@ block content
     .wrapper.fadeInDown
         #formContent
             // Tabs Titles
-            h2.active  Sign In 
+            h2.active  Forgot Password 
             // Icon
             .fadeIn.first
             // Login Form
-            form.loginForm
+            form.emailForm
                 input#login.fadeIn.second.email(type='email', name='login', placeholder='Email')
-                input#password.fadeIn.third.password(type='password', name='login', placeholder='Password')
-                button.fadeIn.fourth.loginbtn(type="submit") Log In   
-            #formFooter
-                a.underlineHover(href='/forgot') Forgot Password?
+                //- input#password.fadeIn.third.password(type='password', name='login', placeholder='Password')
+                button.fadeIn.third.emailbtn(type="submit") Email Reset Link   
+            //- #formFooter
+            //-     a.underlineHover(href='#') Forgot Password?
 append script
     script(src="js/login.js")

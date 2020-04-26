@@ -9,7 +9,7 @@ body {
 }
 
 a {
-  color: #92badd;
+  color: #e06a6a;
   display:inline-block;
   text-decoration: none;
   font-weight: 400;
@@ -264,7 +264,7 @@ border: 2px solid #f6f6f6;}
   bottom: -10px;
   width: 0;
   height: 2px;
-  background-color: #56baed;
+  background-color: #e74c3c;
   content: "";
   transition: width 0.2s;
 }

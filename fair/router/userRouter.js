@@ -12,12 +12,12 @@ const {
 
 userRouter.post("/signup", signup);
 userRouter.post("/login", login);
-userRouter.patch("/forgetPassword",forgetPassword)
-userRouter.patch("/resetPassword/:token",resetPassword)
+userRouter.patch("/forgetPassword",forgetPassword);
+userRouter.patch("/resetPassword/:token",resetPassword);
 // profile page 
 
 
-userRouter.use(protectRoute)
+userRouter.use(protectRoute);
 
 userRouter.post("/userProfile",getUser)
 

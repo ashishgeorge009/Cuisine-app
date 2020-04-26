@@ -156,19 +156,20 @@ async function forgetPassword(req, res) {
       const resetToken = user.createResetToken();
 // confirm password
       await user.save({ validateBeforeSave: false });
-      resetPath = "http://localhost:3000/api/users/resetPassword/" + resetToken;
+      // resetPath = "http://localhost:3000/api/users/resetPassword/" + resetToken
+      const resetPath = "http://localhost:3000/reset/"+resetToken;
       
       
       async function resetEmail(){
         try{
-        const transport = nodemailer.createTransport({
-          host: "smtp.mailtrap.io",
-          port: 2525,
-          auth: {
-            user: "5d6c73ec5dee9e",
-            pass: "130e3a311f9c2b"
-          }
-        });
+          const transport = nodemailer.createTransport({
+            host: "smtp.mailtrap.io",
+            port: 2525,
+            auth: {
+              user: "83427edb2618b3",
+              pass: "b14d260c8bccc4"
+            }
+          });
         const emailPreface={
           from: "userdatabas@head.com",
           to: user.email,
@@ -216,7 +217,7 @@ async function resetPassword(req, res) {
       user.resetPasswordhandler(password, confirmPassword)
       await user.save();
       res.status(200).json({
-        status: "Password reset "
+        status: "Password reset"
       })
 
     } else {
