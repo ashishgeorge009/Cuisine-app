@@ -148,12 +148,12 @@ function isAuthorized(roles) {
   }
 }
 async function forgetPassword(req, res) {
-  let { email } = req.body;
+  let email  = req.body.email;
   try {
     const user = await userModel.findOne({ email: email });
     if (user) {
       // create token
-      
+
       const resetToken = user.createResetToken();
 // confirm password
       await user.save({ validateBeforeSave: false });
