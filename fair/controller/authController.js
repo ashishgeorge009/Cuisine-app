@@ -153,6 +153,7 @@ async function forgetPassword(req, res) {
     const user = await userModel.findOne({ email: email });
     if (user) {
       // create token
+      
       const resetToken = user.createResetToken();
 // confirm password
       await user.save({ validateBeforeSave: false });
