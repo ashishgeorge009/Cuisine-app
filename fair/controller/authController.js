@@ -136,17 +136,36 @@ async function protectRoute(req,res,next){
   }
 }
 
-function isAuthorized(roles) {
-  return function (req, res,next) {
-    if (roles.includes(req.role) == true) {
+// function isAuthorized(roles) {
+//   return function (req, res,next) {
+//     if (roles.includes(req.role) == true) {
+//       next()
+//     } else {
+//       res.status(403).json({
+//         status: "user not allowed"
+//       })
+//     }
+//   }
+// }
+function isAuthorized(req, res,next) {
+    if (req.role === "admin") {
+      console.log("Authorized")
       next()
     } else {
+      let clientType = req.get("User-Agent");
+      if (clientType.includes("Mozilla") == true) {
+        //  backend express 
+        
+       return res.redirect("/");
+       
+        
+      }else{
       res.status(403).json({
         status: "user not allowed"
-      })
+      })}
     }
   }
-}
+
 async function forgetPassword(req, res) {
   let email  = req.body.email;
   try {

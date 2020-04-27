@@ -55,6 +55,12 @@ async function getResetPage(req,res){
         title: "Reset Password" , name
     }
 }
+async function getManagePage(req,res){
+    let name = req.userName;
+    res.render("manageplans.pug",{
+        title: "Manage Plans" , name
+    })
+}
 
 module.exports.getTrialPage = getTrialPage;
 module.exports.getHomePage = getHomePage;
@@ -64,3 +70,4 @@ module.exports.getSignupPage=getSignupPage;
 module.exports.getProfilePage=getProfilePage;
 module.exports.getForgotPage=getForgotPage;
 module.exports.getResetPage=getResetPage;
+module.exports.getManagePage=getManagePage;

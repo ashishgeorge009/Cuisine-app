@@ -16,7 +16,7 @@ const { isAuthorized } = require("../controller/authController");
 // planRouter.param("id", checkId);
 // admin ,restaurantowner
 planRouter.use(protectRoute);
-planRouter.use(isAuthorized(["admin","restaurantowner"]));
+// planRouter.use(isAuthorized(["admin","restaurantowner"]));
 // createPlan
 // updatePlan
 // deletePlan

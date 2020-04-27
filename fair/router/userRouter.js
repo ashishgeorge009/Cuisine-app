@@ -22,7 +22,7 @@ userRouter.use(protectRoute);
 userRouter.post("/userProfile",getUser)
 
 // admin
-userRouter.use(isAuthorized(["admin"]))
+// userRouter.use(isAuthorized(["admin"]))
 userRouter
    .route("")
    .get(getAllUsers)

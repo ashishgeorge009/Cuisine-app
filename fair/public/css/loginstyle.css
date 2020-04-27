@@ -38,6 +38,19 @@ h2 {
   min-height: 100%;
   padding: 20px;
 }
+.backgrndsignin{
+  background-image: url("../img/signinbkg.jpg");
+  background-size: 100vw;
+}
+.backgroundsignup{
+  background-image: url("../img/signupbkg.jpg");
+  background-size: 100vw;
+}
+.backgrndmng{
+  background-image: url("../img/mngplanbkg.jpg");
+  background-size: 100vw;
+
+}
 
 #formContent {
   -webkit-border-radius: 10px 10px 10px 10px;
@@ -101,7 +114,7 @@ input[type=button], input[type=submit],button[type=submit], input[type=reset]  {
   transition: all 0.3s ease-in-out;
 }
 
-input[type=button]:hover, input[type=submi]:hover,button[type=submit]:hover, input[type=reset]:hover  {
+input[type=button]:hover, input[type=submit]:hover,button[type=submit]:hover, input[type=reset]:hover  {
   background-color: #ff0000;
 }
 
