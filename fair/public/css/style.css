@@ -250,53 +250,85 @@ border-bottom: 0.1rem solid #e74c3c;
     display: table;
 
 } */
-
 .plans{
     
     background-color: lightgray;
-    
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 8rem;
 }
-.parent-plans-container{
+.plan-parent {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding-top: 4rem;
 
+    /* height: 80vh; */
 }
 
-.plans-text-container
-{
-    font-size: 125%;
-    border: 0.05rem solid gray;
-    padding: 3rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    border-radius: 6%;
-    line-height: 3rem;
-    position: absolute;
+.plan-child {
+    width: 23%;
+    /* box-shadow: 0 1rem 3rem rgba(5, 5, 5, 0.295) !important; */
+    height: 85%;
+    /* background-color: blanchedalmond; */
+    padding: 2.5rem;
+    border-radius: 0.8rem;
+    border: 2px solid;
+    font-size: 140%;
+    line-height: 2rem;
+    padding-bottom: 0;
+    transition: transform 0.5s;
+    
+  }
+.plan-child:hover{
+    transform: scale(1.2);
+    background-color: rgb(236, 236, 236);
 }
-.amt{
-    font-size: 271%;
+  .plan-header
+  {
+    /* height: 30%; */
+    border-bottom: 0.1rem solid grey;
+    padding-bottom: 1rem;
+  }
+  /* .plan-features {
+    height: 55%;
+  } */
+
+
+  .plan-btn__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  a.signup-btn {
+    font-size: 87%;
+    position: relative;
+    top: 1.8rem;
+    margin: 0;
+    
+    border: 0.8rem solid #e74c3c;
+  }
+  .amt{
+    font-size: 294%;
     color: #e74c3c;
+    line-height: 4rem;
 }
-.plans-container{
-    margin: 7rem;
-}
-.planbtn{
-    
-    margin-top: 28.2rem;
-   
-    margin-left: 5.5rem;
-    font-size: 150%;
-    
-}
-.h3plan{
+  .h3plan{
     margin-bottom: 1.5rem;
 }
-
-.plans-container:hover{
-    transform: scale(1);
+.check{
+    color: #e74c3c;
+    margin-right: 0.6rem;
+}
+.plan-list{
+    list-style-type: none;
+    
+}
+.plan-item{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 
-footer {
+.footer {
     background-color: rgb(58, 56, 56);
     height: 11rem;
   }

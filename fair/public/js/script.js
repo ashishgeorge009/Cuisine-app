@@ -1,19 +1,18 @@
 const spanDetector = document.getElementById("span-detector");
 const nav = document.getElementById("nav");
 const showCase = document.querySelector(".showcase");
-const featureSection = document.querySelector(".steps")
-if(featureSection){
-    console.log("featue")
-}
+const featureSection = document.querySelector(".features")
+
+
 
 if(spanDetector){
     
 window.addEventListener("load",function(){
     const clients = ["EVERYONE","FITNESS FREAKS","VEGANS","DEVELOPERS"];
     typeWriter(spanDetector,clients);
-    if(featureSection){
+    
     window.addEventListener("scroll", myfunction);
-    }
+    
 });
 }
 
