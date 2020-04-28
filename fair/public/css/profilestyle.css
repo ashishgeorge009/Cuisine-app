@@ -72,8 +72,10 @@
 }
 .profile-foodimg{
     width: 60vw;
-    padding: 2rem 2rem;
+    border: 4rem solid lightgray;
     background-color: lightgray;
+    background-image: url(../img/profilefood.jpg);
+    background-size: cover;
     
 
 }

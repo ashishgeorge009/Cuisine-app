@@ -1,15 +1,25 @@
-.plans-container
-    .plans-text-container
+.plan-child
+    .plan-header
         h3.h3plan #{plan.name}
         p
-            span.amt $ #{plan.price}
+            span.amt $#{plan.price}
             | /month
         p That's only #{Math.ceil(plan.price/plan.duration)}$ per meal
-        hr
+    .plan-features
         ul.plan-list
-            li 1 meal every day
-            li Order 24/7
-            li Access to newest creations
-            li Free delivery
-        hr
-    a.btn.btn-full.planbtn(href='') I'm hungry
+            li.plan-item
+                i.fas.fa-check.check
+                | 1 meal every day
+            li.plan-item
+                i.fas.fa-check.check
+                | Order 24/7
+            li.plan-item
+                i.fas.fa-check.check
+                | Access to newest creations
+            li.plan-item
+                i.fas.fa-check.check
+                | Free delivery
+    .plan-btn__container
+        a.btn.btn-full.signup-btn(href='') I'm Hungry 
+
+    

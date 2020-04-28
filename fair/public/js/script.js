@@ -1,7 +1,7 @@
 const spanDetector = document.getElementById("span-detector");
 const nav = document.getElementById("nav");
 const showCase = document.querySelector(".showcase");
-const featureSection = document.querySelector(".features")
+const featureSection = document.querySelector(".features");
 
 
 

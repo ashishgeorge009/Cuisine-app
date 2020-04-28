@@ -253,15 +253,15 @@ border-bottom: 0.1rem solid #e74c3c;
 .plans{
     
     background-color: lightgray;
-    padding-left: 0;
+    padding-left: 3rem;
     padding-right: 0;
-    padding-bottom: 8rem;
+    
 }
 .plan-parent {
     display: flex;
     justify-content: space-evenly;
-    padding-top: 4rem;
-
+    /* padding-top: 4rem; */
+    flex-wrap: wrap;
     /* height: 80vh; */
 }
 
@@ -277,6 +277,8 @@ border-bottom: 0.1rem solid #e74c3c;
     line-height: 2rem;
     padding-bottom: 0;
     transition: transform 0.5s;
+    margin: 3rem;
+    margin-left: 0;
     
   }
 .plan-child:hover{
@@ -328,7 +330,7 @@ border-bottom: 0.1rem solid #e74c3c;
     margin-bottom: 1rem;
 }
 
-.footer {
+footer {
     background-color: rgb(58, 56, 56);
     height: 11rem;
   }
