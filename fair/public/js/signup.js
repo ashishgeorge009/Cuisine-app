@@ -1,4 +1,4 @@
-const d = document
+// const d = document
 
 const signupbtn = d.querySelector(".SignupForm")
 

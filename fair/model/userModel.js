@@ -48,6 +48,10 @@ const userSchema = new mongoose.Schema({
     enum: ["admin", "user", "owner", "delivery boy"],
     default: "user",
   },
+  profileImage: {
+    type:String,
+    default:"img/users/default.jpg"
+  },
   resetToken: String,
   resetTokenExpires: Date
 });

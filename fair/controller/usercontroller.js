@@ -1,5 +1,6 @@
 const userModel = require("../model/userModel");
 const fs = require("fs");
+const sharp = require("sharp");
 
 module.exports.getAllUsers = async function getAllUsers(req,res){
     
@@ -61,3 +62,39 @@ module.exports.deleteUser = function deleteUser(req,res){
     })
 
 }
+
+module.exports.updateProfileImage = async function updateProfileImage(req, res) {
+    // update anything
+    //  form data 
+    try {
+      // console.log(req.file);
+      let user = await userModel.findById(req.id);
+      let serverPath = `public/img/users/user-${user.name}.jpeg`
+      // process
+      console.log("I was here");
+      await sharp(req.file.path)
+        .resize(2000, 2400)
+        .toFormat("jpeg")
+        .jpeg({ quality: 90 })
+        .toFile(serverPath);
+  
+  
+      fs.unlinkSync(req.file.path);
+      serverPath = serverPath.split("/").slice(1).join("/");
+      
+      
+      
+      user.profileImage = serverPath;
+  
+      await user.save({ validateBeforeSave: false });
+      // console.log("I was here");
+      res.status(200).json({
+        status: "image uploaded"
+      })
+    } catch (err) {
+      console.log(err);
+      console.log(err.message);
+    }
+  }
+
+

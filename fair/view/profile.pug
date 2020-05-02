@@ -3,7 +3,10 @@ block  content
   section.mainprofile
     section.profile-container
       .profimg-container.fadeIn.first
-        img.profimg(src='img/profilephoto.jpg', alt='')
+        .image
+          img.profimg(src=`${user.profileImage}`, alt='')
+        .upload
+          input(type="file", name="photo").updateProfile
       .detail-container.fadeIn.second
         .user-container
           h1.username  #{user.name}
@@ -35,3 +38,6 @@ block  content
 append style
   link(rel='stylesheet', href='css/profilestyle.css')
   link(rel='stylesheet', href='css/loginstyle.css')
+
+append script
+  script(src="js/updateimage.js")

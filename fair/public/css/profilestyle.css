@@ -25,9 +25,10 @@
     transform: scale(1.2);
 }
 
-/* .profimg-container{
+.profimg-container{
+    display: block;
     
-} */
+} 
 .detail-container{
     text-transform: uppercase;
     color: white;
@@ -96,3 +97,25 @@
 .rotatin-food:hover{
     transform: scale(1.2) rotate(2turn);
 }
+.upload{
+    margin-top: 1rem;
+}
+.updateProfile{
+    color: white;
+    font-family: 'Acme', sans-serif;
+    width: 14rem;
+}
+.updateProfile::-webkit-file-upload-button {
+    
+    color: #e74c3c;
+    border-radius: 1rem;
+    background-color: white;
+    border: none;
+    padding: 0.5rem;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+
+/* .updateProfile::-webkit-file-upload-text {
+    visibility: hidden;
+  } */
