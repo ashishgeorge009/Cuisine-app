@@ -316,6 +316,8 @@ border-bottom: 0.1rem solid #e74c3c;
 }
   .h3plan{
     margin-bottom: 1.5rem;
+    text-transform: capitalize;
+
 }
 .check{
     color: #e74c3c;

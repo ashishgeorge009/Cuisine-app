@@ -104,8 +104,10 @@
     color: white;
     font-family: 'Acme', sans-serif;
     width: 14rem;
+    transition: transform 0.5s;
 }
 .updateProfile::-webkit-file-upload-button {
+    
     
     color: #e74c3c;
     border-radius: 1rem;
@@ -113,9 +115,16 @@
     border: none;
     padding: 0.5rem;
     font-weight: 600;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    font-family: 'Acme', sans-serif;
+    
   }
 
 /* .updateProfile::-webkit-file-upload-text {
     visibility: hidden;
   } */
+
+  .updateProfile::-webkit-file-upload-button:hover{
+      color: black;
+  }
+ 
