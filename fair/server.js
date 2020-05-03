@@ -6,6 +6,7 @@ const app = express();
 const planRouter = require("./router/planRouter");
 const userRouter = require("./router/userRouter");
 const viewRouter = require("./router/viewRouter");
+const reviewRouter = require("./router/reviewRouter");
 
 //-------express.json-------
 app.use(express.json());
@@ -20,6 +21,7 @@ app.set("views", path.join(__dirname,"view"));
 app.use("/api/plans", planRouter);
 app.use("/api/users", userRouter);
 app.use("/", viewRouter)
+app.use("/api/reviews",reviewRouter);
 
 
 app.listen(3000, function(){
