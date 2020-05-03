@@ -2,7 +2,7 @@ const reviewModel = require("../model/reviewModel")
 
 async function createReview(req,res){
     try{
-        const review = awat.reviewModel.create(req.body);
+        const reviews = await reviewModel.create(req.body);
         res.status(200).json({
             reviews
         })
@@ -15,10 +15,11 @@ async function createReview(req,res){
 
 async function getAllReviews(req,res){
     try{
-        const reviews = await reviewModel.find().populate({
-            path :"user",
-            select :"name profileImage"
-        }).populate("plan");
+        const reviews = await reviewModel.find();
+        // .populate({
+        //     path :"user",
+        //     select :"name profileImage"
+        // }).populate("plan");
         res.status(200).json({
             reviews
         })

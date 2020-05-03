@@ -3,8 +3,8 @@ const reviewRouter = express.Router();
 
 const {getAllReviews , createReview}= require("../controller/reviewController")
 
-reviewRouter
+reviewRouter.route("")
     .get(getAllReviews)
-    .post(createReview)
+    .post(createReview);
 
 module.exports = reviewRouter;
