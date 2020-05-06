@@ -1,12 +1,13 @@
 
 const express = require("express");
 const path = require("path")
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const app = express();
 const planRouter = require("./router/planRouter");
 const userRouter = require("./router/userRouter");
 const viewRouter = require("./router/viewRouter");
 const reviewRouter = require("./router/reviewRouter");
+const bookingRouter = require("./router/bookingRouter");
 
 //-------express.json-------
 app.use(express.json());
@@ -22,6 +23,7 @@ app.use("/api/plans", planRouter);
 app.use("/api/users", userRouter);
 app.use("/", viewRouter)
 app.use("/api/reviews",reviewRouter);
+app.use("/api/bookings",bookingRouter);
 
 
 app.listen(3000, function(){

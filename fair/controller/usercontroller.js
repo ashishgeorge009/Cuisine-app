@@ -10,16 +10,16 @@ module.exports.getAllUsers = async function getAllUsers(req,res){
     data: users,
   });
 };
-module.exports.createUser = function createUser(req,res){
-    const user = req.body;
-    console.log(user);
-    user.lama = users.length +1;
-    users.push(user)
-    fs.writeFileSync("./data/users.json",JSON.stringify(users));
-    res.status(201).json({
-        success:"user created successfully"
-    });
-};
+// module.exports.createUser = function createUser(req,res){
+//     const user = req.body;
+//     console.log(user);
+//     user.lama = users.length +1;
+//     users.push(user)
+//     fs.writeFileSync("./data/users.json",JSON.stringify(users));
+//     res.status(201).json({
+//         success:"user created successfully"
+//     });
+// };
 module.exports.getUser = async function getUser(req,res){
     const id = req.params.id|| req.id;
     const user = await userModel.findById(id)
@@ -79,7 +79,7 @@ module.exports.updateProfileImage = async function updateProfileImage(req, res) 
         .toFile(serverPath);
   
   
-      fs.unlinkSync(req.file.path);
+      // fs.unlinkSync(req.file.path);
       serverPath = serverPath.split("/").slice(1).join("/");
       
       
