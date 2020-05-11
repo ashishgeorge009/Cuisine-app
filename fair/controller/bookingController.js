@@ -1,4 +1,6 @@
-const stripe = require('stripe')('sk_test_4Cm5QLUvBcPrB19dFbD4PRD400g4ZTYpD4');
+let SK=process.env.SK||require("../config/secrets").SK;
+//process.env.SK defined in heroku
+const stripe = require('stripe')(SK);
 const planModel = require("../model/planModel");
 const userModel = require("../model/userModel");
 async function createSession(req,res){
@@ -22,8 +24,8 @@ async function createSession(req,res){
               currency: 'usd',
               quantity: 1,
             }],
-            success_url: 'http://localhost:3000/profile',
-            cancel_url: 'http://localhost:3000',
+            success_url: `${req.protocol}://${req.get("host")}/profile`,
+            cancel_url: `${req.protocol}://${req.get("host")}`
           })
           res.status(200).json({
               status:"success",

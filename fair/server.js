@@ -8,7 +8,9 @@ const userRouter = require("./router/userRouter");
 const viewRouter = require("./router/viewRouter");
 const reviewRouter = require("./router/reviewRouter");
 const bookingRouter = require("./router/bookingRouter");
-
+const errorExtender = require("./utility/ErrorExtender");
+const globalErrorHandler=require("./utility/globalErrorHandler");
+process.env.NODE_ENV = process.env.NODE_ENV || "production";
 //-------express.json-------
 app.use(express.json());
 app.use(cookieParser())
@@ -25,8 +27,16 @@ app.use("/", viewRouter)
 app.use("/api/reviews",reviewRouter);
 app.use("/api/bookings",bookingRouter);
 
+app.use("*", function(req, res, next){
+    err = new errorExtender("Page Not found", 404);
 
-app.listen(3000, function(){
+    next(err);
+})
+
+app.use("*", globalErrorHandler);
+
+const port = process.env.PORT || 3000;
+app.listen(port, function(){
     console.log("Server started at port 3000");
 })
 

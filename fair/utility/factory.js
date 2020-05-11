@@ -1,4 +1,5 @@
 const QueryHelper = require("../utility/utilityfn");
+const ErrorExtender = require("../utility/ErrorExtender")
 
 module.exports.createElement = function (ElementModel) {
     return async function create(req, res) {
@@ -11,10 +12,7 @@ module.exports.createElement = function (ElementModel) {
           data: createdElement,
         });
       } catch (err) {
-        res.status(501).json({
-          err,
-          status: "Internal server error",
-        });
+        return next(new ErrorExtender("element could not be created", 404))
       }
     };
   }
@@ -36,6 +34,8 @@ return async function getAll(req, res) {
         data: finalans,
     });
     } catch (err) {
+      next(new Error("Element could not be updated"));
+      return;
     }
 };
 } 
@@ -46,15 +46,16 @@ module.exports.getElement = function (ElementModel) {
         // recieve id through params
         const { id } = req.params;
         const Element = await ElementModel.findById(id);
+        if(!Element){
+          return next(new ErrorExtender("element not found", 404))
+        }
         res.json({
           status: "successfull",
           data: Element,
         });
       } catch (err) {
-        res.status(404).json({
-          status: "Element Not found",
-          err,
-        });
+        next(Error("Something went wrong", 404))
+        
       }
     };
 }
@@ -70,6 +71,9 @@ module.exports.updateElement = function (ElementModel) {
         const toupdateData = req.body;
         // mdb=> express server
         const originalElement = await ElementModel.findById(id);
+        if(!originalElement){
+          return next(new ErrorExtender("element not found", 404))
+        }
         const keys = Object.keys(toupdateData)
         // express server => modify
         for (let i = 0; i < keys.length; i++) {
@@ -86,10 +90,11 @@ module.exports.updateElement = function (ElementModel) {
         });
       } catch (err) {
         console.log(err);
-        res.status(501).json({
-          status: "Element could not be updated",
-          err,
-        });
+        next(Error("Something went wrong"))
+        // res.status(501).json({
+        //   status: "Element could not be updated",
+        //   err,
+        // });
       }
     };
   }
@@ -104,10 +109,11 @@ module.exports.updateElement = function (ElementModel) {
           Element: Element,
         });
       } catch (err) {
-        res.status(404).json({
-          status: "Element could not be Deleted",
-          err: err.message,
-        });
+        next(Error("Something went wrong"))
+        // res.status(404).json({
+        //   status: "Element could not be Deleted",
+        //   err: err.message,
+        // });
       }
   
     }

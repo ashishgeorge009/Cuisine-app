@@ -1,12 +1,12 @@
 //secrets--config
-const secrets = require("../config/secrets")
+const DB_LINK = process.env.DB_LINK||require("../config/secrets").DB_LINK;
 //mongoose
 const mongoose = require("mongoose");
 //mogoose +> promise library
 
 mongoose
     .connect(
-        secrets.DB_LINK,
+        DB_LINK,
         {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true}
     )
     .then(function(db){

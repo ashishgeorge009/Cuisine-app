@@ -1,7 +1,7 @@
 // const express = require("express") 
 const userModel = require("../model/userModel");
 const jwt = require("jsonwebtoken")
-const secrets = require("../config/secrets");
+const JWT_SECRET_KEY = process.env.JWT_SECRET_KEY||require("../config/secrets").JWT_SECRET_KEY;
 //nodemailer
 const nodemailer=require("nodemailer");
 
@@ -30,7 +30,7 @@ async function login(req, res) {
       if (user) {
         if (user.password == req.body.password) {
           const id = user["_id"];
-          const token = jwt.sign({id},secrets.JWT_SECRET_KEY)
+          const token = jwt.sign({id},JWT_SECRET_KEY)
           //header 
           res.cookie("jwt",token,{httpOnly: true});
            return res.status(200).json({
@@ -70,7 +70,7 @@ async function isUserLoggedIn(req,res,next){
     }
     if(token){
       const cToken = token;
-      const payload = jwt.verify(cToken,secrets.JWT_SECRET_KEY);
+      const payload = jwt.verify(cToken,JWT_SECRET_KEY);
       if(payload)
       {
         const user = await userModel.findById(payload.id);
@@ -106,7 +106,7 @@ async function protectRoute(req,res,next){
     console.log(req.get("User-Agent"))
     if(token){
       const cToken = token;
-      const payload = jwt.verify(cToken,secrets.JWT_SECRET_KEY);
+      const payload = jwt.verify(cToken,JWT_SECRET_KEY);
       if(payload)
       {
         const user = await userModel.findById(payload.id);
